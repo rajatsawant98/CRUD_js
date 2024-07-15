@@ -54,25 +54,25 @@ router.post('/', async(req, res) => {
 })
 
 
-// router.patch('/:id', async (req, res) => {
-//     try {
-//         const alien = await Alien.findById(req.params.id);
-//         if (!alien) {
-//             return res.status(404).json({ message: 'Alien not found' });
-//         }
+router.patch('/:id', async (req, res) => {
+    try {
+        const alien = await Alien.findById(req.params.id);
+        if (!alien) {
+            return res.status(404).json({ message: 'Alien not found' });
+        }
 
-//         alien.name = req.body.name;
-//         alien.tech = req.body.tech;
-//         alien.sub = req.body.sub;
-//         alien.age = req.body.age;
-//         alien.gender = req.body.gender;
+        alien.name = req.body.name;
+        alien.tech = req.body.tech;
+        alien.sub = req.body.sub;
+        alien.age = req.body.age;
+        alien.gender = req.body.gender;
 
-//         const updatedAlien = await alien.save();
-//         res.json(updatedAlien);
-//     } catch (err) {
-//         res.status(500).json({ message: 'Error', error: err.message });
-//     }
-// });
+        const updatedAlien = await alien.save();
+        res.json(updatedAlien);
+    } catch (err) {
+        res.status(500).json({ message: 'Error', error: err.message });
+    }
+});
 
 
 router.patch('/:id', async (req, res) => {
